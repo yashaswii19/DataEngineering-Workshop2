@@ -1,5 +1,17 @@
 # Creating a Django project
 
+**Time box:** 09:45–11:15  
+**Goal:** Create a simple Django project, one model, and use Django Admin.
+
+## How to follow this session with the workshop repo
+
+This repository already contains a working sample at `DataEngineering-Workshop2/myworld/`.
+
+- **Recommended on workshop day:** stay in that `myworld/` folder. When a step says “create file X”, open the existing file and compare it to the guide instead of creating a second project.
+- **Optional practice later:** create a fresh project in a *different* empty folder (not inside this Workshop 2 tree).
+
+The morning tutorial uses a simple `Members` model to teach migrations. The provided sample uses `Students` (plus `Blog` after lunch). Both teach the same Django ideas.
+
 ## Installing Django
 Django can be installed using pip. Open your terminal and create a folder where you would like to create your Django project. Then run the below commands once you get inside that folder
 
@@ -56,7 +68,7 @@ python manage.py runserver
         Starting development server at http://127.0.0.1:8000/
         Quit the server with CTRL-BREAK.
 - Now copy the link mentioned in the above log ie., http://127.0.0.1:8000/ and open it in your browser. This should open the sample webpage.
-- You can enter CNTRL + C to stop the server and continue with the development. 
+- You can enter CTRL + C to stop the server and continue with the development. 
 - Or you can keep the server running and open a new tab to continue with the rest of the project development.
 
 ## Django Create App
@@ -68,11 +80,11 @@ python manage.py runserver
 
 #### Create App
 - Let the name of the App be Members.
-- Go the project folder and run the below command.
+- Go to the project folder and run the below command.
 ```buildoutcfg
 python manage.py startapp members
 ```
-- This will create an App called memebrs inside the project folder.
+- This will create an App called members inside the project folder.
 - Now the project folder will look like this
 
       myworld
@@ -131,7 +143,7 @@ urlpatterns = [
 
 - The urls.py file you just created is specific for the members application.
 - We have to do some routing in the root directory myworld as well
-- For that go to the myworld folder inside the main project folder myfolder and open the urls.py file
+- For that go to the myworld folder inside the main project folder and open the urls.py file
 - Then add the include module in the import statement, and also add a path() function in the urlpatterns[] list, with arguments that will route users that comes in via 127.0.0.1:8000/members/.
 - Your file should look like this
 
@@ -158,7 +170,7 @@ urlpatterns = [
 Go to the folder members. Run the below commands.
       
       mkdir templates
-      vi myfirst.html
+      vi templates/myfirst.html
 
 Add the below content in the file
 ```buildoutcfg
@@ -304,8 +316,8 @@ Now the Members table would have created in your database.
 # Django Admin Site
 
 - Now that we have added the tables to our database, how do we see that table and perform the CRUD operation to it?
-- In order to do that we can use the build admin-site functionality provided by Django to the developers.
-- Following steps need to followed :
+- In order to do that we can use the built-in admin-site functionality provided by Django to the developers.
+- Following steps need to be followed:
 
 1. Open the admin.py file in the members folder and add the below lines of code
 ```buildoutcfg
@@ -338,3 +350,13 @@ python manage.py runserver
 ```
 4. Type http://127.0.0.1:8000/admin/ in your web browser. Now you will be able to see a login page. Add your credentials and login. This will show you the database. 
 Currently it is empty. You may use the options present in the admin-site to perform the CRUD operation
+
+## Note about the provided sample project
+
+If you use the `myworld/` folder already in this repository (instead of creating everything from scratch), the sample app model is named **`Students`** (not `Members`). Afternoon sessions and the scraper use that sample plus a `Blog` model.
+
+## What's next today
+
+After this session we **dockerize** the project (and connect Postgres).
+After lunch we focus on **web scraping** and **saving data in Postgres**.
+REST APIs, unit tests, and more advanced topics are in `docs/homework/` (after class).
