@@ -25,7 +25,10 @@ SECRET_KEY = 'ncm)mv70*o$lf+yo$sw=tkvz%rfbfw4zu7eex=1dq)+o)kerg$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', '*']
+
+# Quiet Django 3.2+ primary-key warnings for beginner labs.
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Application definition

@@ -1,0 +1,11 @@
+version: "3"
+services:
+  psql-db:
+    image: 'postgres:14'
+    container_name: psql-db-drill1
+    environment:
+      - PGPASSWORD=wrongpass
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=wrongpass
+    ports:
+      - '5451:5432'

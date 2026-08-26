@@ -1,9 +1,12 @@
-# Introduction to Django
+# Introduction to Django (Simple Overview)
 
+**Time box:** 09:00–09:45  
+**Goal:** Understand what Django is and the MVT idea before we create a small project.
 
 Django is a Python framework that makes it easier to create web sites using Python.
-Django emphasizes reusability of components and comes with ready-to-use features like login system, database connection and CRUD operations (Create Read Update Delete)
+It comes with ready-to-use features like an admin login, database connection, and CRUD operations (Create, Read, Update, Delete).
 
+Today we keep Django **simple**. You only need the big picture — then we will build a small project step by step.
 
 <br />
 
@@ -11,47 +14,48 @@ Django emphasizes reusability of components and comes with ready-to-use features
 
 Django follows the MVT design pattern (Model View Template).
 
-- Model - The data you want to present, usually data from a database
-- View - A request handler that returns the relevant template and content - based on the request from the user
-- Template - A text file (like an HTML file) containing the layout of the web page, with logic on how to display the data.
+- **Model** — the data you want to present (usually from a database)
+- **View** — a request handler that chooses what content to return
+- **Template** — an HTML-like file that describes how the page looks
 
-## Model
-- The model provides data from the database.
-- In Django, the data is delivered as an Object Relational Mapping (ORM), which is a technique designed to make it easier to work with databases.
-- We normally communicate with database is SQL. One problem with SQL is that you have to have pretty good understanding of the database structure to be able to work with it.
-- Django, with ORM, makes it easier to communicate with the database, without having to write complex SQL statements.
-- The models are usually located in a file called models.py.
+## Model (short)
 
-## View
-- A view is a function or method that takes http requests as arguments, imports the relevant model(s), and finds out what data to send to the template, and returns the final result
-- The views are usually located in a file called views.py.
+- Models live in `models.py`.
+- Django’s ORM lets you work with tables using Python instead of writing lots of SQL by hand.
 
-## Template
-- A template is a file where you describe how the result should be represented.
-- Django uses standard HTML to describe the layout, but uses Django tags to add logic
+## View (short)
+
+- Views live in `views.py`.
+- A view receives an HTTP request and returns a response (often by rendering a template).
+
+## Template (short)
+
+- Templates live in a `templates` folder.
+- They use HTML plus Django tags, for example:
+
 ```
 <h1>My Homepage</h1>
-
 <p>My name is {{ firstname }}.</p>
 ```
-- The templates of an application is located in a folder named templates.
 
-## URLs
-- Django also provides a way to navigate around the different pages in a website.
-- When a user requests a URL, Django decides which view it will send it to.
-- This is done in a file called urls.py.
+## URLs (short)
+
+- `urls.py` maps a URL path to a view.
+- When a user opens a URL, Django finds the matching view and runs it.
 
 ## Generic workflow
-1. Django receives the URL, checks the urls.py file, and calls the view that matches the URL.
-2. The view, located in views.py, checks for relevant models.
-3. The models are imported from the models.py file.
-4. The view then sends the data to a specified template in the template folder.
-5. The template contains HTML and Django tags, and with the data it returns finished HTML content back to the browser.
 
+1. Django receives the URL, checks `urls.py`, and calls the matching view.
+2. The view may load data from models.
+3. The view sends data to a template.
+4. The template returns finished HTML to the browser.
 
 ![Django Workflow](django-mvt-based-control-flow.png)
 
-   
-> Explore here: [https://www.w3schools.com/django/django_intro.php](https://www.w3schools.com/django/django_intro.php)
+> Optional extra reading: [https://www.w3schools.com/django/django_intro.php](https://www.w3schools.com/django/django_intro.php)
 
+## What's next today
 
+Next we **create a simple Django project** and open Django Admin.
+After lunch we focus on **web scraping** and **Postgres**.
+REST APIs, unit tests, and more advanced topics are in `docs/homework/` (after class).
